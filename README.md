@@ -1,6 +1,6 @@
 # LCS Plagiarism Checker
 
-A robust and efficient web-based plagiarism detection tool built with ASP.NET Core Razor Pages. This application utilizes the **Longest Common Subsequence (LCS)** algorithm to compare two bodies of text and determine their similarity score, highlighting potential plagiarism.
+A robust and efficient web-based plagiarism detection tool built with C# console. This application utilizes the **Longest Common Subsequence (LCS)** algorithm to compare two bodies of text and determine their similarity score, highlighting potential plagiarism.
 
 ## 🚀 Features
 
@@ -14,7 +14,6 @@ A robust and efficient web-based plagiarism detection tool built with ASP.NET Co
 
 - **Framework:** .NET 8 / ASP.NET Core (Razor Pages)
 - **Language:** C#
-- **Frontend:** HTML5, CSS3, Razor syntax
 
 ## 🧠 How It Works
 
