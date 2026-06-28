@@ -1,0 +1,38 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Plagiarism Checker";
+}
+
+<div class="header-container">
+    <h1>LCS PLAGIARISM CHECKER</h1>
+    <p>Detect similarity between two texts using the Longest Common Subsequence algorithm.</p>
+</div>
+
+<form method="post" class="checker-form">
+    <div class="form-row">
+        <div class="form-column">
+            <label asp-for="CheckRequest.Text1">TEXT 1</label>
+            <textarea asp-for="CheckRequest.Text1" id="text1" placeholder="Paste your first text here..."></textarea>
+            <div class="validation-container">
+                <span asp-validation-for="CheckRequest.Text1" class="error-msg"></span>
+                <span class="char-count" id="count1">0 / 5000</span>
+            </div>
+        </div>
+        <div class="form-column">
+            <label asp-for="CheckRequest.Text2">TEXT 2</label>
+            <textarea asp-for="CheckRequest.Text2" id="text2" placeholder="Paste your second text here..."></textarea>
+            <div class="validation-container">
+                <span asp-validation-for="CheckRequest.Text2" class="error-msg"></span>
+                <span class="char-count" id="count2">0 / 5000</span>
+            </div>
+        </div>
+    </div>
+    <div class="submit-container">
+        <button type="submit" class="btn-primary">CHECK SIMILARITY</button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

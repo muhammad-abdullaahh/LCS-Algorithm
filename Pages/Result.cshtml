@@ -1,0 +1,57 @@
+@page
+@model ResultModel
+@{
+    ViewData["Title"] = "Check Result";
+}
+
+<div class="result-header">
+    <h1 class="score">@Model.Result.SimilarityScore.ToString("F1")% SIMILAR</h1>
+    <h2 class="label">@Model.SimilarityLabel</h2>
+</div>
+
+<div class="result-row">
+    <div class="result-column">
+        <h3>TEXT 1</h3>
+        <div class="text-display">
+            @Html.Raw(HighlightText(Model.Result.Text1Tokens, Model.Result.MatchedWords))
+        </div>
+    </div>
+    <div class="result-column">
+        <h3>TEXT 2</h3>
+        <div class="text-display">
+            @Html.Raw(HighlightText(Model.Result.Text2Tokens, Model.Result.MatchedWords))
+        </div>
+    </div>
+</div>
+
+<div class="lcs-sequence">
+    <h3>LCS SEQUENCE</h3>
+    <pre>@(Model.Result.MatchedWords.Count > 0 ? string.Join(" ", Model.Result.MatchedWords) : "None")</pre>
+</div>
+
+<div class="action-container">
+    <a asp-page="/Index" class="btn-primary">CHECK AGAIN</a>
+</div>
+
+@functions {
+    public string HighlightText(string[] tokens, List<string> matchedWords)
+    {
+        var result = new System.Text.StringBuilder();
+        var matchIndex = 0;
+
+        foreach (var token in tokens)
+        {
+            if (matchIndex < matchedWords.Count && string.Equals(token, matchedWords[matchIndex], System.StringComparison.OrdinalIgnoreCase))
+            {
+                result.Append($"<span class='matched'>{System.Net.WebUtility.HtmlEncode(token)}</span> ");
+                matchIndex++;
+            }
+            else
+            {
+                result.Append($"{System.Net.WebUtility.HtmlEncode(token)} ");
+            }
+        }
+
+        return result.ToString().TrimEnd();
+    }
+}

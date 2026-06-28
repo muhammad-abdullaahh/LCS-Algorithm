@@ -1,0 +1,21 @@
+@page
+@model AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+
+<div class="about-container">
+    <h1>ABOUT LCS PLAGIARISM CHECKER</h1>
+    <p>
+        This tool uses the Longest Common Subsequence (LCS) algorithm to find the longest sequence of words that appear in the same order in both texts.
+    </p>
+    <p>
+        The similarity score is calculated using the Sørensen–Dice coefficient, adapted for LCS:
+    </p>
+    <pre>Similarity % = (2 * LCS_Length) / (Length_of_Text1 + Length_of_Text2) * 100</pre>
+    <p>
+        The tool breaks text down into tokens by removing punctuation and splitting by whitespace.
+        It then computes the optimal sequence using dynamic programming.
+        This provides a fair, symmetric metric for natural language text comparison.
+    </p>
+</div>
