@@ -25,24 +25,6 @@ A robust and efficient web-based plagiarism detection tool built with C# console
    ```
 4. **Classification (`Result.cshtml.cs`):** Based on the score, the application assigns a label ranging from "NO SIMILARITY DETECTED" (0%) to "EXACT MATCH" (100%).
 
-## 📂 Project Structure
-
-```text
-LCS-Plagiarism-Checker/
-├── Core/
-│   ├── LcsAlgorithm.cs         # Core Dynamic Programming logic for LCS
-│   └── SimilarityCalculator.cs # Text preprocessing and score computation
-├── Models/
-│   ├── CheckRequest.cs         # Data model for text inputs
-│   └── CheckResult.cs          # Data model for analysis output
-├── Pages/
-│   ├── Index.cshtml            # Input form page
-│   ├── Result.cshtml           # Results display page
-│   └── ...                     # Standard Razor pages components
-├── wwwroot/                    # Static assets (CSS, JS, images)
-└── Program.cs                  # Application entry point and middleware config
-```
-
 ## 💻 Getting Started
 
 ### Prerequisites
